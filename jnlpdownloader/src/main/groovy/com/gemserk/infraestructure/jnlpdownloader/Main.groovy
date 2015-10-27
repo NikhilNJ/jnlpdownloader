@@ -153,11 +153,13 @@ class Main {
 		println "LINUX: $linuxCommandLine"
 		new File(destDir,"run-linux.sh").setText(linuxCommandLine)
 		def windowsCommandLine =  "java -Djava.library.path=\"natives\\Windows\" -cp \"libs\\*\" $jnlpinfo.mainClass ${jnlpinfo.parameters.join(" ")}"
+		//todo This command line doesnt honour the JNLP arguments
 		println "WINDOWS: $windowsCommandLine"
 		new File(destDir,"run-windows.bat").setText(windowsCommandLine)
 		def macCommandLine =  "java -Djava.library.path='natives/Mac' -cp 'libs/*' $jnlpinfo.mainClass ${jnlpinfo.parameters.join(" ")}"
 		println "Mac OS X: $macCommandLine"
 		new File(destDir,"run-macosx.sh").setText(macCommandLine)
+		println "Please note that VM parameters may not be copied over and these need to be added manually for now.."
 	}
 	
 	static main(args) {

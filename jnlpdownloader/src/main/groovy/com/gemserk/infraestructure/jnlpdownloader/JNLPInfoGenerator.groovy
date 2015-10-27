@@ -60,7 +60,10 @@ class JNLPInfoGenerator {
 		applicationDesc.parameters.each { parameter ->
 			jnlpinfo.parameters.add(parameter)
 		}
-		
+		//Add arguments
+		applicationDesc.parameters.each { argument ->
+			jnlpinfo.parameters.add(argument)
+		}
 		return jnlpinfo
 	}
 }	
